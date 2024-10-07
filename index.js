@@ -30,9 +30,7 @@ const DOMSelectors = {
   description: document.querySelectorAll(".card-desc"),
   items: document.querySelectorAll("li"),
 };
-
-let button = document.querySelector(".submit");
+let button = document.querySelector(".something");
 button.addEventListerner("click", function (event) {
   event.preventDefault();
-  console.log("yay");
 });
