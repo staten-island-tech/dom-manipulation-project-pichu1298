@@ -25,17 +25,27 @@
 // //call function
 // changeColor();
 
-// const DOMSelectors = {
-//   header: document.querySelectorAll("h1"),
-//   description: document.querySelectorAll(".card-desc"),
-//   items: document.querySelectorAll("li"),
-// };
+const DOMSelectors = {
+  header: document.querySelectorAll("h1"),
+  description: document.querySelectorAll(".card-desc"),
+  items: document.querySelectorAll("li"),
+};
 let button = document.querySelector("form");
 button.addEventListener("submit", function (event) {
   event.preventDefault();
+  let desc = document.querySelector("#desc");
+  console.log("Card description", desc.value);
 });
-preventDefault();
-
+button.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let color = document.querySelector("#color");
+  console.log("color", color.value);
+});
+button.addEventListener("submit", function (event) {
+  event.preventDefault();
+  let smth = document.querySelector("#smth");
+  console.log("Picture", smth.value);
+});
 // const item = document.querySelectorAll("li");
 // const items = Array.from(item); // make nodelist into array
 // console.log(item);
