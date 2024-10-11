@@ -7,3 +7,14 @@ body,*
 .container{
     box-sizing: content-box;
 }
+
+h1{
+    font-size: 400%;
+}
+p,
+li,*{
+    font-size: 200%;
+}
+.card{
+    background-color: black;
+}
