@@ -16,5 +16,6 @@ li,*{
     font-size: 200%;
 }
 .card{
-    background-color: black;
+    background-color: white;
+    width: 30%;
 }

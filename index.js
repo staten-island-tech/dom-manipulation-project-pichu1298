@@ -30,43 +30,37 @@ const DOMSelectors = {
   description: document.querySelectorAll(".card-desc"),
   items: document.querySelectorAll("li"),
   container: document.querySelector(".container"),
+  cards: document.querySelectorAll(".card"),
 };
 let button = document.querySelector("form");
-button.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let desc = document.querySelector("#desc");
-  console.log("Card description", desc.value);
-});
 
 button.addEventListener("submit", function (event) {
   event.preventDefault();
   let color = document.querySelector("#color");
   console.log("color", color.value);
-});
-
-button.addEventListener("submit", function (event) {
-  event.preventDefault();
   let smth = document.querySelector("#smth");
   console.log("Picture", smth.value);
+  let desc = document.querySelector("#desc");
+  console.log("Card description", desc.value);
+  createCard(smth, desc);
 });
 
-DOMSelectors.container.insertAdjacentHTML(
-  "beforeend",
-  `<div class = "card">
-<h2 class = "cardheader">  </h2>
-<img src="${details.Picture}" class = "pictureValue" alt="">
-<p class = "card-desc"> ${details.cardDesc} </p>
-</div>`,
-  console.log("Information Accepted")
-);
-const card = document.querySelectorAll(".card");
-const cards = Array.from(card);
-
 let details = {
-  Picture: smth.value,
-  Color: color.value,
-  cardDesc: desc.value,
+  color: color.value,
+  picture: smth.value,
+  desc: desc.value,
 };
+function createCard(smth, desc) {
+  DOMSelectors.container.insertAdjacentHTML(
+    "beforeend",
+    `<div class = "card">
+  <h2 class = "cardheader"> </h2>
+  <img src="${smth.value}" class = "pictureValue" alt="">
+  <p class = "card-desc"> ${desc.value} </p>
+  </div>`,
+    console.log("Information Accepted")
+  );
+}
 
 // const item = document.querySelectorAll("li");
 // const items = Array.from(item); // make nodelist into array
@@ -98,3 +92,8 @@ let details = {
 // get values from form for widget object (widget is generac term)
 //create the card insert the card
 //find remove buttons and add event listeners
+
+//const Album = makeAlbum()
+//addCard(Album)
+//clearFields()
+//addRemoveButtons
