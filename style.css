@@ -5,17 +5,32 @@ body,*
 }
 
 .container{
-    box-sizing: content-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    background-color: blue;
+    align-items: center;
+    justify-content: space-between;
 }
 
 h1{
-    font-size: 400%;
+    font-size: 100%;
+    text-align: center;
 }
 p,
 li,*{
-    font-size: 200%;
+    font-size: 100%;
+    text-align: center;
 }
 .card{
-    background-color: white;
+    background-color: cornflowerblue;
     width: 30%;
+}
+
+.pictureValue{
+    width:100%;
+}
+
+#Remove{
+   width: 50%;
 }
