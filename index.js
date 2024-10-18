@@ -44,6 +44,7 @@ button.addEventListener("submit", function (event) {
   let desc = document.querySelector("#desc");
   console.log("Card description", desc.value);
   createCard(smth, desc, color);
+  findButtons();
 });
 
 let details = {
@@ -51,6 +52,18 @@ let details = {
   picture: smth.value,
   desc: desc.value,
 };
+
+function findButtons() {
+  const btn = document.querySelectorAll("#Remove");
+  const btns = Array.from(btn);
+  btns.forEach((btn) =>
+    btn.addEventListener("click", function (removed) {
+      buttonCard = parent;
+      removed.preventDefault();
+      buttonCard.remove(buttonCard);
+    })
+  );
+}
 function createCard(smth, desc, color) {
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
@@ -58,16 +71,11 @@ function createCard(smth, desc, color) {
     <h2 class = "cardheader">${color.value}</h2>
     <img src="${smth.value}" class = "pictureValue" alt="">
     <p class = "card-desc"> ${desc.value} </p>
-    <button type="submit" id="Remove"> Remove </button>
+    <button type="button" id="Remove"> Remove </button>
 </div>`,
     console.log("Information Accepted")
   );
 }
-
-const btn = document.querySelectorAll("#Remove");
-const btns = Array.from(btn);
-
-btns.forEach(btn => )
 
 // const item = document.querySelectorAll("li");
 // const items = Array.from(item); // make nodelist into array
