@@ -34,9 +34,10 @@ const DOMSelectors = {
 };
 let button = document.querySelector("form");
 const cards = Array.from(DOMSelectors.card);
-
+let cardID = 0;
 button.addEventListener("submit", function (event) {
   event.preventDefault();
+  // let cardID = 0;
   let color = document.querySelector("#color");
   console.log("color", color.value);
   let smth = document.querySelector("#smth");
@@ -44,7 +45,7 @@ button.addEventListener("submit", function (event) {
   let desc = document.querySelector("#desc");
   console.log("Card description", desc.value);
   createCard(smth, desc, color);
-  findButtons();
+  findButtons(cardID);
 });
 
 let details = {
@@ -53,30 +54,35 @@ let details = {
   desc: desc.value,
 };
 
-function findButtons() {
-  const btn = document.querySelectorAll("#Remove");
+function findButtons(CARDS) {
+  const btn = document.querySelectorAll(".Remove");
   const btns = Array.from(btn);
   btns.forEach((btn) =>
     btn.addEventListener("click", function (removed) {
-      buttonCard = parent;
+      //if (btns.includes(btn.id) === true) {
       removed.preventDefault();
-      buttonCard.remove(buttonCard);
+      console.log("Button found", btn.id);
+      CARDS = document.getElementById(btn.id);
+      CARDS.remove();
+      console.log("Card removed");
+      //}
     })
   );
 }
 function createCard(smth, desc, color) {
+  // cardID = document.querySelectorAll(".card").length;
+  cardID++;
   DOMSelectors.container.insertAdjacentHTML(
     "beforeend",
-    `<div class = "card">
-    <h2 class = "cardheader">${color.value}</h2>
-    <img src="${smth.value}" class = "pictureValue" alt="">
-    <p class = "card-desc"> ${desc.value} </p>
-    <button type="button" id="Remove"> Remove </button>
-</div>`,
+    `<div class="card" id="${cardID}">
+        <h2 class="cardheader">${color.value}</h2>
+        <img src="${smth.value}" class="pictureValue" alt="" />
+        <p class="card-desc">${desc.value}</p>
+        <button type="button" class = "Remove" id="${cardID}">Remove</button>
+      </div>`,
     console.log("Information Accepted")
   );
 }
-
 // const item = document.querySelectorAll("li");
 // const items = Array.from(item); // make nodelist into array
 // console.log(item);
